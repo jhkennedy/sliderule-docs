@@ -1,0 +1,45 @@
+---
+title: "ICESat-2 SlideRule"
+layout: splash
+date: 2021-04-23T11:30:00-04:00
+header:
+  overlay_color: "#000"
+  overlay_filter: "0.5"
+  overlay_image: /assets/images/nz_glacier.jpeg
+  actions:
+    - label: "Getting Started Guide"
+      url: /gettingstarted/
+excerpt: "Process ICESat-2 **ATL03, ATL06, and ATL08** datasets in the cloud through REST API calls to SlideRule web services."
+opening:
+- title: 'What Is SlideRule?'
+intro:
+- excerpt: '___SlideRule___ is a server-side framework implemented in C++/Lua that provides REST APIs for processing science data and returning results. This enables researchers and other data systems to have low-latency access to generated data products using processing parameters supplied at the time of the request.  _SlideRule_ runs in AWS us-west-2 and has access to the official ICESat-2 datasets hosted by the NSIDC. While its web services can be accessed by any http client (e.g. curl), a [Python client](https://github.com/ICESat2-SlideRule/sliderule-python) is provided that makes it easier to interact with _SlideRule_.'
+feature_row:
+  - image_path: /assets/images/system.png
+    alt: "system design"
+    title: "Overview"
+    excerpt: "A top down look at SlideRule's architecture and various components"
+    url: /overview/
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+  - image_path: /assets/images/h5.png
+    alt: "h5"
+    title: "H5Coro"
+    excerpt: "A description of SlideRule's HDF5 Cloud-Optimized Read-Only library"
+    url: "/h5coro/"
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+  - image_path: /assets/images/api.png
+    title: "Documentation"
+    excerpt: "Documentation on SlideRule's REST APIs and Python client"
+    url: /rtd/
+    btn_label: "Read More"
+    btn_class: "btn--primary"
+---
+
+{% include feature_row id="opening" type="center" %}
+
+{% include feature_row id="intro" type="wide" %}
+
+{% include feature_row %}
+

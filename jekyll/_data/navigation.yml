@@ -1,0 +1,13 @@
+main:
+  - title: "Getting Start Guide"
+    url: /gettingstarted/
+  - title: "Documentation"
+    url: /rtd/
+  - title: "Contact Us"
+    url: /contact/
+  - title: "About"
+    url: /about/
+  - title: "Release Notes"
+    url: /release_notes/
+  - title: "How-To"
+    url: /howtos/
