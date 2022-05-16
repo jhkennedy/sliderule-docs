@@ -43,7 +43,7 @@ The photon-input parameters allow the user to select an area, a time range, or a
 * ``"t1"``: stop time for filtering granuels (format %Y-%m-%dT%H:%M:%SZ, e.g. 2018-10-13T00:00:00Z)
 
 2.1.1 Polygons
-##############
+#################
 
 All polygons provided to the ICESat-2 module functions must be provided as a list of dictionaries containing longitudes and latitudes in counter-clockwise order with the first and last point matching.
 

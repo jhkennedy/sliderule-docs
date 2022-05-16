@@ -36,6 +36,7 @@ extensions = [
     "sphinx.ext.autodoc",
     'sphinx.ext.graphviz',
     "sphinx.ext.viewcode",
+    "sphinx.ext.napoleon",
     'recommonmark',
     'sphinx_markdown_tables',
     "sphinx_panels",
