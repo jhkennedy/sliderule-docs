@@ -83,7 +83,7 @@ The SlideRule project is funded by NASA's ICESat-2 program and is led by the Uni
    :hidden:
    :maxdepth: 1
    :caption: Users Guide
-   
+
    user_guide/Background.rst
    user_guide/ICESat-2.rst
    user_guide/SlideRule.rst
@@ -98,5 +98,5 @@ The SlideRule project is funded by NASA's ICESat-2 program and is led by the Uni
    :caption: API Reference
 
    api_reference/icesat2.rst
-   api_reference/icepyx.rst
+   api_reference/ipxapi.rst
    api_reference/sliderule.rst
