@@ -12,7 +12,8 @@ The ICESat-2 SlideRule project consists of the following git repositories:
 * `sliderule` - server _(open source, public)_
 * `sliderule-icesat2` - server plugin for icesat2 _(open source, public)_
 * `sliderule-python` - python client _(open source, public)_
-* `sliderule-project` - infrastructure, docker files, website, resources _(private)_
+* `sliderule-cluster` - infrastructure, docker files, resources _(private)_
+* `sliderule-docs` - website _(open source, public)_
 
 Releasing and deploying SlideRule consists of the following steps:
 1. [Pre-release testing](#i-pre-release-testing)
@@ -48,7 +49,7 @@ $ sliderule tests/test_runner.lua
 
 3. Python pytests locally (requires ATL03/06/08 files at /data)
 ```bash
-$ cd {root}/sliderule-project
+$ cd {root}/sliderule-cluster
 $ make monitor-docker
 $ make monitor-docker-run # leave running
 $ make sliderule-docker
@@ -60,7 +61,7 @@ $ pytest --server="127.0.0.1" --asset="atlas-local"
 
 4. Python system tests locally (requires ATL03/06/08 files at /data)
 ```bash
-$ cd {root}/sliderule-project
+$ cd {root}/sliderule-cluster
 $ make sliderule-docker
 $ make sliderule-docker-run # leave running
 $ conda activate sliderule # created from  {root}/sliderule-python/environment.yml
@@ -71,7 +72,7 @@ $ python tests/atl08class.py
 
 5. Deploy test cluster and run example workflows
 ```bash
-$ cd {root}/sliderule-project
+$ cd {root}/sliderule-cluster
 $ make sliderule-docker
 $ docker push icesat2sliderule/sliderule:latest
 #
@@ -79,10 +80,10 @@ $ docker push icesat2sliderule/sliderule:latest
 #
 # create sliderule-node-latest AMI
 # if it exists then delete ("deregister") AMI first via console
-$ cd {root}/sliderule-project/packer
+$ cd {root}/sliderule-cluster/packer
 $ packer build sliderule-base.pkr.hcl
 # wait until process completes and AMI image created
-$ cd {root}/sliderule-project/terraform
+$ cd {root}/sliderule-cluster/terraform
 $ terraform apply -var cluster_name=test
 # type 'yes' at prompt after verifying that resources are prefixed with 'test'
 # wait until process completes and nodes finish initializing
@@ -91,7 +92,7 @@ $ terraform apply -var cluster_name=test
 #
 $ cd {root}/sliderule-python
 $ conda activate sliderule # created from  {root}/sliderule-python/environment.yml
-$ python utils/region_of_interest.py {root}/sliderule-project/datasets/grandmesa.geojson {test-node-manager ip address}
+$ python utils/region_of_interest.py examples/grandmesa.geojson {test-node-manager ip address}
 #
 # Start jupyter notebook and run through examples
 #
@@ -104,7 +105,7 @@ $ python utils/region_of_interest.py {root}/sliderule-project/datasets/grandmesa
 # Log into AWS console and start cloud shell
 #
 # delete test cluster
-$ cd {root}/sliderule-project/terraform
+$ cd {root}/sliderule-cluster/terraform
 $ terraform workspace select test
 $ terraform destroy
 # type 'yes' at prompt after verifying that resources are prefixed with 'test'
@@ -116,27 +117,27 @@ $ terraform destroy
 #
 # Run with Valigrind
 #
-$ cd {root}/sliderule-project
+$ cd {root}/sliderule-cluster
 $ make distclean
 $ make sliderule-config-valgrind
 $ make sliderule
 $ make sliderule-run-valgrind # leave running
 $ cd {root}/sliderule-python
 $ conda activate sliderule # created from  {root}/sliderule-python/environment.yml
-$ python utils/region_of_interest.py {root}/sliderule-project/datasets/grandmesa.geojson
+$ python utils/region_of_interest.py examples/grandmesa.geojson
 # there will be lots of timeouts; this is okay and tests error paths
 # likely will have to stop the test early because it is taking too long (hours...)
 #
 # Run with Address Sanitizer
 #
-$ cd {root}/sliderule-project
+$ cd {root}/sliderule-cluster
 $ make distclean
 $ make sliderule-config-asan
 $ make sliderule
 $ make sliderule-run # leave running
 $ cd {root}/sliderule-python
 $ conda activate sliderule # created from  {root}/sliderule-python/environment.yml
-$ python utils/region_of_interest.py {root}/sliderule-project/datasets/grandmesa.geojson
+$ python utils/region_of_interest.py examples/grandmesa.geojson
 ```
 
 7. Run H5Coro performance test
@@ -146,7 +147,7 @@ $ make distclean
 $ make python-config
 $ make
 $ cd build
-$ cp {root}/sliderule-project/tests/perftest.py .
+$ cp {root}/sliderule-icesat2/tests/perftest.py .
 $ conda activate sliderule # created from  {root}/sliderule-python/environment.yml
 $ python perftest.py
 ```
@@ -160,21 +161,21 @@ $ make scan
 
 ### II. Release Notes
 
-Create a release note for the build in the `sliderule-project` repository, under ***jekyll/release_notes/***, named ***release-v{x-y-z}.md***.
+Create a release note for the build in the `sliderule-docs` repository, under ***jekyll/release_notes/***, named ***release-v{x-y-z}.md***.
 
 
 ### III. Tag Release
 
 1. Tag the release in the git repositories
 ```bash
-$ cd {root}/sliderule-project
+$ cd {root}/sliderule-cluster
 $ make VERSION=x.y.z release-tag
 ```
 
 2. Publish the release on GitHub
 ```bash
 # assumes that the github python environment exists, see release-prep target for details
-$ cd {root}/sliderule-project
+$ cd {root}/sliderule-cluster
 $ make VERSION=x.y.z release-github
 ```
 
@@ -182,7 +183,7 @@ $ make VERSION=x.y.z release-github
 ### IV. Build Docker Images
 
 ```bash
-$ cd {root}/sliderule-project
+$ cd {root}/sliderule-cluster
 $ make VERSION=x.y.z release-docker
 ```
 
@@ -193,7 +194,7 @@ $ make VERSION=x.y.z release-docker
 #
 # Log into AWS console and start a cloud shell
 #
-$ cd {root}/sliderule-project
+$ cd {root}/sliderule-cluster
 $ make VERSION=x.y.z release-packer
 ```
 
@@ -204,7 +205,7 @@ $ make VERSION=x.y.z release-packer
 #
 # Log into AWS console and start a cloud shell
 #
-$ cd {root}/sliderule-project
+$ cd {root}/sliderule-cluster
 $ make VERSION=x.y.z release-terraform
 ```
 
@@ -217,7 +218,7 @@ $ cd {root}/sliderule-python
 $ conda activate sliderule # created from  {root}/sliderule-python/environment.yml
 $ python utils/query_version.py {vX.Y.Z-node-manager ip address}
 $ python utils/query_services.py {vX.Y.Z-node-manager ip address}
-$ python utils/region_of_interest.py {root}/sliderule-project/datasets/grandmesa.geojson {vX.Y.Z-node-manager ip address}
+$ python utils/region_of_interest.py examples/grandmesa.geojson {vX.Y.Z-node-manager ip address}
 ```
 
 2. Run pytest
@@ -250,7 +251,7 @@ $ pytest --server="{vX.Y.Z-node-manager ip address}"
 #
 # Log into AWS console and start a cloud shell
 #
-$ cd {root}/sliderule-project/terraform
+$ cd {root}/sliderule-cluster/terraform
 $ terraform workspace select {previous release workspace}
 $ terraform destroy
 ```
