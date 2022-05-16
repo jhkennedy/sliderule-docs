@@ -1,5 +1,5 @@
 ======
-icepyx
+ipxapi
 ======
 
 The icepyx Python API ``ipxapi.py`` is used to access the services provided by the **sliderule-icesat2** plugin for SlideRule using the ``icepyx`` library.
@@ -14,38 +14,19 @@ The module can be imported via:
 For more information about icepyx, go to `icepyx GitHub <https://github.com/icesat2py/icepyx>`_ or `icepyx ReadTheDocs <https://icepyx.readthedocs.io/en/latest/>`_.
 
 
+""""""""""""""""
 
 atl06p
 ------
+.. autofunction:: sliderule.ipxapi.atl06p
 
 """"""""""""""""
-
-.. py:function:: ipxapi.atl06p(ipx_region, parm, asset=icesat2.DEFAULT_ASSET)
-
-    Performs ATL06-SR processing in parallel on ATL03 data and returns gridded elevations.  The list of granules to be processed is identified by the ipx_region object.
-
-    See the `atl06p <ICESat-2.html#atl06p>`_ function for more details.
-
-    :param Query ipx_region: icepyx region object defining the query of granules to be processed
-    :param dict parm: parameters used to configure ATL06-SR algorithm processing (see `Parameters <ICESat-2.html#parameters>`_)
-    :keyword str asset: data source asset (see `Assets <ICESat-2.html#assets>`_)
-    :return: GeoDataFrame of gridded elevations (see `Elevations <ICESat-2.html#elevations>`_)
-
-
 
 atl03sp
 -------
+.. autofunction:: sliderule.ipxapi.atl03sp
 
-""""""""""""""""
 
-.. py:function:: ipxapi.atl03sp(ipx_region, parm, asset=icesat2.DEFAULT_ASSET)
-
-    Performs ATL03 subsetting in parallel on ATL03 data and returns photon segment data.
-
-    See the `atl03sp <ICESat-2.html#atl03sp>`_ function for more details.
-
-    :param Query ipx_region: icepyx region object defining the query of granules to be processed
-    :param dict parms: parameters used to configure ATL03 subsetting (see `Parameters <ICESat-2.html#parameters>`_)
-    :keyword str asset: data source asset (see `Assets <ICESat-2.html#assets>`_)
-    :return: list of ATL03 segments (see `Photon Segments <ICESat-2.html#photon-segments>`_)
-
+to_region
+---------
+.. autofunction:: sliderule.ipxapi.to_region
