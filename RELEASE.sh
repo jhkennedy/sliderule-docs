@@ -17,7 +17,7 @@ fi
 #
 # Clean up any previously attempted archives
 #
-rm sliderule-project-$VERSION.tar.gz 2> /dev/null
+rm sliderule-docs-$VERSION.tar.gz 2> /dev/null
 
 #
 # Update version in local repository
@@ -30,5 +30,5 @@ git commit -m "Version v$VERSION"
 # Create tag and acrhive
 #
 git tag -a v$VERSION -m "version $VERSION"
-git archive --format=tar.gz --prefix=sliderule-project/ v$VERSION > sliderule-project-$VERSION.tar.gz
+git archive --format=tar.gz --prefix=sliderule-docs/ v$VERSION > sliderule-docs-$VERSION.tar.gz
 
