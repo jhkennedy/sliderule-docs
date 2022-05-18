@@ -41,6 +41,12 @@ set_max_errors
 
 """"""""""""""""
 
+set_max_pending
+---------------
+.. autofunction:: sliderule.set_max_pending
+
+""""""""""""""""
+
 set_rqst_timeout
 ----------------
 .. autofunction:: sliderule.set_rqst_timeout
