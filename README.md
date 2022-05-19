@@ -5,7 +5,7 @@ Repository for ICESat-2 SlideRule documentation.
 
 ## Building the SlideRule Website
 
-The SlideRule **website** can be built and hosted locally for development purposes, and also built as a Docker image for deployment.
+The SlideRule **website** can be built and hosted locally for development purposes.
 
 ### Prerequisites
 
@@ -14,17 +14,10 @@ The SlideRule **website** can be built and hosted locally for development purpos
     See https://www.sphinx-doc.org/en/master/usage/installation.html for more details.
 
     ```bash
-    $ pip install -U Sphinx
+    $ pip install -U Sphinx docutils==0.16 sphinx_markdown_tables sphinx_panels sphinx_rtd_theme
     ```
 
     Note: docutils version 0.17.x breaks certain formatting in Sphinx (e.g. lists).  Therefore it is recommended that docutils version 0.16 be installed.
-
-    ```bash
-    $ pip install docutils==0.16
-    $ pip install sphinx_markdown_tables
-    $ pip install sphinx_panels
-    $ pip install sphinx_rtd_theme
-    ```
 
 2. Jekyll
 
@@ -52,19 +45,14 @@ The SlideRule **website** can be built and hosted locally for development purpos
 
 3. Docker (see [UbuntuSetup](jekyll/_howtos/UbuntuSetup.md))
 
-### Instructions
+### Build Instructions
 
 To build, in the root of the repository:
 ```bash
-$ make website
+$ make
 ```
 
 To run locally (exposed as http://localhost:4000) in the root of the repository:
 ```bash
-$ make website-local-run
-```
-
-To run as a Docker container (exposed as http://localhost), in the root of the repository:
-```bash
-$ make website-docker-run
+$ make run
 ```
