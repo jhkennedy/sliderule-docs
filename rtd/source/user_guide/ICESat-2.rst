@@ -132,6 +132,7 @@ To run the YAPC algorithm, specify the YAPC settings as a sub-dictionary. Here i
 ----------------------------
 
 Selected photons are collected into extents, each of which may be suitable for elevation fitting.  The _len_ parameter specifies the length of each extent, and the _res_parameter specifies the distance between subsequent extent centers.  If _res_ is less than _len_, subsequent segments will contain duplicate photons.  The API may also select photons based on their along-track distance, or based on the segment-id parameters in the ATL03 product (see the _dist_in_seg_ parameter).
+
 * ``"len"``: length of each extent in meters
 * ``"res"``: step distance for successive extents in meters
 * ``"dist_in_seg"``: true|false flag indicating that the units of the ``"len"`` and ``"res"`` are in ATL03 segments (e.g. if true then a len=2 is exactly 2 ATL03 segments which is approximately 40 meters)
