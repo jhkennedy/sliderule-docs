@@ -1,12 +1,12 @@
 ---
 layout: single
-title: "Release Notes for v1.4.2"
+title: "Release Notes for v1.4.3"
 date: 2022-05-31 8:00:00 -0500
 classes: wide
 categories: release_notes
 ---
 
-Version description of the v1.4.2 release of ICESat-2 SlideRule.
+Version description of the v1.4.3 release of ICESat-2 SlideRule.
 
 ## New Features
 
@@ -20,9 +20,9 @@ Version description of the v1.4.2 release of ICESat-2 SlideRule.
 
 ## Getting This Release
 
-[https://github.com/ICESat2-SlideRule/sliderule/releases/tag/v1.4.2](https://github.com/ICESat2-SlideRule/sliderule/releases/tag/v1.4.2)
+[https://github.com/ICESat2-SlideRule/sliderule/releases/tag/v1.4.3](https://github.com/ICESat2-SlideRule/sliderule/releases/tag/v1.4.3)
 
-[https://github.com/ICESat2-SlideRule/sliderule-icesat2/releases/tag/v1.4.2](https://github.com/ICESat2-SlideRule/sliderule-icesat2/releases/tag/v1.4.2)
+[https://github.com/ICESat2-SlideRule/sliderule-icesat2/releases/tag/v1.4.3](https://github.com/ICESat2-SlideRule/sliderule-icesat2/releases/tag/v1.4.3)
 
-[https://github.com/ICESat2-SlideRule/sliderule-python/releases/tag/v1.4.2](https://github.com/ICESat2-SlideRule/sliderule-python/releases/tag/v1.4.2)
+[https://github.com/ICESat2-SlideRule/sliderule-python/releases/tag/v1.4.3](https://github.com/ICESat2-SlideRule/sliderule-python/releases/tag/v1.4.3)
 
