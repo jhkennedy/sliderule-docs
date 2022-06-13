@@ -62,7 +62,7 @@ In general, it is only necessary to provide the _url_ to the `init` function; bu
 
 __Step 3__: Create a list of coordinates that represent the Grand Mesa region of interest.
 ```python
->>> grand_mesa = icesat2.toregion('grandmesa.geojson')["poly"]
+>>> grand_mesa = icesat2.toregion('grandmesa.geojson')
 ```
 The [grandmesa.geojson](/assets/datasets/grandmesa.geojson) file used in this example can be downloaded by clicking on the link; alternatively, you can create your own GeoJSON file at [geojson.io](https://geojson.io).
 
