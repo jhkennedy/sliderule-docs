@@ -5,7 +5,7 @@ Getting Started
 This documentation is intended to explain how to use `SlideRule`, an on-demand science data processing service, and its accompanying Python client.
 `SlideRule` is hosted at ``icesat2sliderule.org`` and responds to REST API calls to process and return science results.
 The software was originally developed to support science applications for `NASA's Ice Cloud and land Elevation Satellite-2 (ICESat-2)`__,
-but has the goal of demonstrating a new paradigm for providing science data products to researchers. 
+but has the goal of demonstrating a new paradigm for providing science data products to researchers.
 Future enhancements to SlideRule include adding datasets from new missions and including algorithms for different types of science applications.
 
 .. __: https://icesat-2.gsfc.nasa.gov/
@@ -23,7 +23,6 @@ The `SlideRule` service provides a number of services which allow a user to proc
 .. code-block:: bash
 
     # import (1)
-    import pandas as pd
     from sliderule import icesat2
 
     # region of interest (2)
@@ -61,7 +60,7 @@ This code snippet performs the following functions with respect to SlideRule:
 Common API Calls
 ####################
 
-Out of all the API calls available in SlideRule, there are a few common ones that handle most use cases.  
+Out of all the API calls available in SlideRule, there are a few common ones that handle most use cases.
 The functions associated with these APIs are listed below for convenience.  For a complete reference, please see
 the `API Reference <../api_reference>`_.
 
@@ -82,9 +81,9 @@ the `API Reference <../api_reference>`_.
          - Convert a GeoJSON formatted polygon or shapefile into the format accepted by SlideRule
        * - `get_version <../api_reference/icesat2.html#get-version>`_
          - Get version information for the running servers and client
-       * - `atl06p <../api_reference/icepyx.html#atl06p>`_
+       * - `icepyx.atl06p <../api_reference/icepyx.html#atl06p>`_
          - Uses icepyx region to perform ATL06-SR processing in parallel on ATL03 data and return gridded elevations
-       * - `atl03sp <../api_reference/icepyx.html#atl03sp>`_
+       * - `icepyx.atl03sp <../api_reference/icepyx.html#atl03sp>`_
          - Uses icepyx region to subset ATL03 granuels in parallel and return the photon data
        * - `source <../api_reference/sliderule.html#source>`_
          - Perform a direct API call to a SlideRule service
