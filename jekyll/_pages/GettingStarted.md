@@ -13,7 +13,7 @@ category: user
 
 SlideRule is a C++/Lua framework for on-demand science data processing. It is used to build scalable systems that can process datasets and return customized results based on user provided parameters.  Its goal is to enable investigations which require processing science data in ways that were either unintended or may be inefficient given the original structure of the data.
 
-The University of Washington has partnered with the ICESat-2 program to develop and deploy an instantiation of SlideRule to AWS us-west-2 in order to support science investigations using ICESat-2's ATL03, ATL06, and ATL08 datasets.  The ICESat-2 SlideRule deployment is accessed at [icesat2sliderule.org](http://icesat2sliderule.org).
+The University of Washington has partnered with the ICESat-2 program to develop and deploy an instantiation of SlideRule to AWS us-west-2 in order to support science investigations using ICESat-2's ATL03, ATL06, and ATL08 datasets.  The ICESat-2 SlideRule deployment is accessed at [icesat2sliderule.org](/).
 
 For a top down explanation of the deployment's architecture and various components, see the [Overview](/overview/).
 
