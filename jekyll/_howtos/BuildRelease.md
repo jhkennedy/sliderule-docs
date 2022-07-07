@@ -34,7 +34,7 @@ $ make distclean
 $ make development-config
 $ make
 $ sudo make install
-$ sliderule scripts/tests/test_runner.lua
+$ sliderule scripts/selftests/test_runner.lua
 ```
 
 2. ICESat-2 Plugin Self-Test
