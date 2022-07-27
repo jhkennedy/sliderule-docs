@@ -2,6 +2,7 @@
 www/
 build/
 stage/
+.env
 .cookies
 .DS_Store
 *.tfstate

@@ -21,7 +21,7 @@ Version description of the v1.0.4 release of ICESat-2 SlideRule
 
 * Created Python utility for displaying version of SlideRule running ([query_version.py](https://github.com/ICESat2-SlideRule/sliderule-python/blob/main/utils/query_version.py))
 
-* `icesat2.toregion` api now supports GeoJSON, Shapefiles, and simplifying polygons (see [documentation](http://icesat2sliderule.org/rtd/user_guide/ICESat-2.html#toregion))
+* `icesat2.toregion` api now supports GeoJSON, Shapefiles, and simplifying polygons (see [documentation](/rtd/user_guide/ICESat-2.html#toregion))
 
 * Created `sliderule-project` repository for icesat2sliderule.org; all documentation moved to this repository (includes Read the Docs).
 

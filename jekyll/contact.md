@@ -26,7 +26,7 @@ Opening an pull request is great for:
 * bug fixes you have already made to the existing code base
 * features you have already implemented and want incorporated in future releases
 
-Before opening a pull request, please read our [Contributing](http://icesat2sliderule.org/rtd/getting_started/Contributing.html) guidelines.
+Before opening a pull request, please read our [Contributing](/rtd/user_guide/Contributing.html) guidelines.
 
 For pull requests related to ***SlideRule's Python client*** or anything else related to the SlideRule user experience, please use this link to submit a PR: [sliderule-python PR](https://github.com/ICESat2-SlideRule/sliderule-python/pulls).
 

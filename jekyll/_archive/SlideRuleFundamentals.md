@@ -12,7 +12,7 @@ category: developer
 
 SlideRule is a server-side framework implemented in C++/Lua that provides REST APIs for on demand science data processing. SlideRule can be used by researchers and other data systems for low-latency access to customized data products that are generated using processing parameters supplied at the time of the request with results returned in real-time.
 
-The development of SlideRule is led by the University of Washington in conjunction with NASA’s ICESat-2 program. The University of Washington is currently running an instantiation of SlideRule in AWS us-west-2, accessible at http://icesat2sliderule.org.  This deployment supports science investigations using ICESat-2’s ATL03, ATL06, and ATL08 datasets, and has direct access to those datasets in AWS S3 through NASA’s Cumulus program.
+The development of SlideRule is led by the University of Washington in conjunction with NASA’s ICESat-2 program. The University of Washington is currently running an instantiation of SlideRule in AWS us-west-2, accessible at [http://icesat2sliderule.org](/).  This deployment supports science investigations using ICESat-2’s ATL03, ATL06, and ATL08 datasets, and has direct access to those datasets in AWS S3 through NASA’s Cumulus program.
 
 Every deployment of SlideRule consists of three major sets of components which are supported by the SlideRule framework: the REST APIs (or web services), the data access interfaces, and the science algorithms.
 
@@ -142,5 +142,5 @@ Each EC2 instance in the cluster runs Promtail for log collection and Node Expor
 
 ## For Further Reading
 
-For further information on SlideRule, see our website at: http://icesat2sliderule.org.
+For further information on SlideRule, see our website at: [http://icesat2sliderule.org](/).
 

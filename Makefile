@@ -33,6 +33,9 @@ distclean: ## delete all build artifacts
 website-docker: distclean ## build the website docker container
 	docker build -t $(WEBSITE_DOCKER_TAG) .
 
+website-docker-no-cache: distclean ## build the website docker container
+	docker build -t $(WEBSITE_DOCKER_TAG) . --no-cache
+
 website-docker-run: ## run the website docker container
 	docker run -it --rm --name=website -p 4000:4000 $(WEBSITE_DOCKER_TAG)
 
