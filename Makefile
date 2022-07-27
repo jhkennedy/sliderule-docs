@@ -1,33 +1,40 @@
 ROOT = $(shell pwd)
 STAGE = $(ROOT)/stage
 WEBSITE_STAGE_DIR ?= $(STAGE)/website
+WEBSITE_DOCKER_TAG ?= icesat2sliderule/website:latest
 
 all: website
 
-website: build-jekyll build-rtd install   ## make the website
+website: build-jekyll build-rtd install ## make the website
 
-build-jekyll:                             ## bundle
+build-jekyll: ## bundle
 	cd jekyll; bundle exec jekyll build
 
-build-rtd:                                ## change directory to /rtd/html
+build-rtd: ## change directory to /rtd/html
 	make -C rtd html
 
-install:                                  ## install the website
+install: ## install the website
 	mkdir -p $(WEBSITE_STAGE_DIR)
 	cp -R jekyll/_site/* $(WEBSITE_STAGE_DIR)
 	cp -R rtd/build/html $(WEBSITE_STAGE_DIR)/rtd
 
-run:                                      ## run the website locally
+run: ## run the website locally
 	cd jekyll; bundle exec jekyll serve -d $(WEBSITE_STAGE_DIR) --skip-initial-build
 
-prep:                                     ## install ruby environment
+prep: ## install ruby environment
 	cd jekyll; bundle install
 
-distclean:								  ## delete all build artifacts
+distclean: ## delete all build artifacts
 	- rm -Rf $(WEBSITE_STAGE_DIR)
 	- rm -Rf jekyll/_site
 	- rm -Rf jekyll/.jekyll-cache
 	- rm -Rf rtd/build
+
+website-docker: distclean ## build the website docker container
+	docker build -t $(WEBSITE_DOCKER_TAG) .
+
+website-docker-run: ## run the website docker container
+	docker run -it --rm --name=website -p 4000:4000 $(WEBSITE_DOCKER_TAG)
 
 help: ## That's me!
 	@printf "\033[37m%-30s\033[0m %s\n" "#-----------------------------------------------------------------------------------------"

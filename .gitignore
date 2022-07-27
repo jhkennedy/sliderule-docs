@@ -6,3 +6,4 @@ stage/
 .cookies
 .DS_Store
 *.tfstate
+.env
