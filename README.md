@@ -7,7 +7,7 @@ Repository for ICESat-2 SlideRule documentation.
 
 The SlideRule **website** can be built and hosted locally for development purposes.
 
-### Linux Build Prerequisites
+### Linux Build Prerequisites for building on local host 
 
 1. Sphinx
 
@@ -45,7 +45,7 @@ The SlideRule **website** can be built and hosted locally for development purpos
 
 3. Docker (see [UbuntuSetup](jekyll/_howtos/UbuntuSetup.md))
 
-### MacOSx Build Prerequisites
+### MacOSx Build Prerequisites for building on local host
 
 
 1. Sphinx
@@ -95,7 +95,7 @@ The SlideRule **website** can be built and hosted locally for development purpos
 
 4. Docker (see [Install Docker on Mac](https://docs.docker.com/desktop/mac/install/) )
 
-### Build Instructions
+### Build Instructions for local host
 
 To build, in the root of the repository:
 ```bash
@@ -105,4 +105,11 @@ $ make
 To run locally (exposed as http://localhost:4000) in the root of the repository:
 ```bash
 $ make run
+```
+
+### Build Instructions for docker container
+
+To build a fully contained docker container, in the root of the repository:
+```bash
+$ make website-docker
 ```
