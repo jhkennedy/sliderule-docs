@@ -34,7 +34,6 @@ website-docker: distclean ## build the website docker container
 	docker build -t $(WEBSITE_DOCKER_TAG) .
 
 website-docker-run: ## run the website docker container
-#	docker run -it --rm --name=website -p 4000:4000 $(WEBSITE_DOCKER_TAG) jekyll serve -d /srv/jekyll/_site --skip-initial-build
 	docker run -it --rm --name=website -p 4000:4000 $(WEBSITE_DOCKER_TAG)
 
 help: ## That's me!
