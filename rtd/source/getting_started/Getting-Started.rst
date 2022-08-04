@@ -37,7 +37,7 @@ The `SlideRule` service provides a number of services which allow a user to proc
 
     # processing parameters (4)
     parms = {
-        "poly": grand_mesa["poly"],
+        "poly": grand_mesa,
         "srt": icesat2.SRT_LAND,
         "cnf": icesat2.CNF_SURFACE_HIGH,
         "len": 40.0,
