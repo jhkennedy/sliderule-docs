@@ -276,8 +276,6 @@ Here is an example of a callback being used for the ``atl06p`` function:
 atl06
 -----
 
-""""""""""""""""
-
 ``POST /source/atl06 <request payload>``
 
     Perform ATL06-SR processing on ATL03 data and return gridded elevations
@@ -346,9 +344,6 @@ atl06
 atl03s
 ------
 
-""""""""""""""""
-
-
 ``POST /source/atl03s <request payload>``
 
     Subset ATL03 data and return segments of photons
@@ -412,8 +407,6 @@ atl03s
 
 indexer
 -------
-
-""""""""""""""""
 
 ``POST /source/indexer <request payload>``
 

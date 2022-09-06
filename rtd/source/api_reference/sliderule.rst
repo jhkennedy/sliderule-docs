@@ -23,33 +23,21 @@ set_url
 
 """"""""""""""""
 
-update_available_servers
-------------------------
-.. autofunction:: sliderule.update_available_servers
-
-""""""""""""""""
-
 set_verbose
 -----------
 .. autofunction:: sliderule.set_verbose
 
 """"""""""""""""
 
-set_max_errors
---------------
-.. autofunction:: sliderule.set_max_errors
-
-""""""""""""""""
-
-set_max_pending
----------------
-.. autofunction:: sliderule.set_max_pending
-
-""""""""""""""""
-
 set_rqst_timeout
 ----------------
 .. autofunction:: sliderule.set_rqst_timeout
+
+""""""""""""""""
+
+authenticate
+----------------
+.. autofunction:: sliderule.authenticate
 
 """"""""""""""""
 

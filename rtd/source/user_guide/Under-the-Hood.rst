@@ -7,16 +7,16 @@ What Is SlideRule?
 
 SlideRule is a server-side framework implemented in C++/Lua that provides REST APIs for processing science data and returning results in real-time. SlideRule can be used by researchers and other data systems for low-latency access to customized data products that are generated using processing parameters supplied at the time of the request.
 
-The development of SlideRule is led by the University of Washington in conjunction with NASA’s ICESat-2 program. The University of Washington is currently running an instantiation of SlideRule in AWS us-west-2, accessible at [http://icesat2sliderule.org](/).  This deployment supports science investigations using ICESat-2’s ATL03, ATL06, and ATL08 datasets, and has direct access to those datasets in AWS S3 through NASA’s Cumulus program.
+The development of SlideRule is led by the University of Washington in conjunction with NASA’s ICESat-2 program. The University of Washington is currently running an instantiation of SlideRule in AWS us-west-2, accessible at http://icesat2sliderule.org.  This deployment supports science investigations using ICESat-2’s ATL03, ATL06, and ATL08 datasets, and has direct access to those datasets in AWS S3 through NASA’s Cumulus program.
 
 Every deployment of SlideRule consists of three major sets of components which are supported by the SlideRule framework: the REST APIs (or web services), the data access interfaces, and the science algorithms.
 
 .. figure:: ../assets/hlsysorg.png
     :align: center
     :alt: SlideRule System Components
-    
+
     Figure 1: SlideRule Overview
-    
+
 Web Services
 ------------
 
@@ -49,7 +49,7 @@ The interim solution to this problem currently offered by most missions is the p
 Moving to a service model for data distribution addresses all of these problems.  Institutions which produce datasets distribute those datasets through services by building out (on-premise or in the cloud) the infrastructure needed to store and process the data, and making all of it directly accessible by data users.
 
 :L1 & L2 Generation: Lower-level datasets are still produced via pipelines developed and maintained by the institution.
-:L1 & L2 Distribution: Instead of being made available for download only, the lower-level data is stored in cloud-based object stores and data users are given direct access to the datasets when they run locally in the data center.  
+:L1 & L2 Distribution: Instead of being made available for download only, the lower-level data is stored in cloud-based object stores and data users are given direct access to the datasets when they run locally in the data center.
 :L3 Generation: Higher-level products are not generated via pipelines, but are provided through services.  Institutions take the same investment they would make in developing the algorithms for higher-level product generation, and instead of hard-coding all the parameters that go into a processing run and statically producing and archiving the resulting files, they expose those algorithms as services and let users supply the processing parameters they need for their specific science application.
 :L3 Distribution: Data users can access the higher-level products not just from inside the data center, but from anywhere, including their local infrastructure. |
 
@@ -76,7 +76,7 @@ In developing SlideRule, the team has six goals that we believe are necessary to
 1. Cost Effective
 -----------------
 
-The system must have near zero costs when not in use, and be able to scale in a cost-controlled way when demand increases.  If there is a recurring cost to support each service, then there is a disincentive to provide more services.  By designing a system that scales to zero when there is no demand, the development of different processing algorithms can be done without the burden of having to support large recurring costs once it is deployed. 
+The system must have near zero costs when not in use, and be able to scale in a cost-controlled way when demand increases.  If there is a recurring cost to support each service, then there is a disincentive to provide more services.  By designing a system that scales to zero when there is no demand, the development of different processing algorithms can be done without the burden of having to support large recurring costs once it is deployed.
 
 Scaling costs to zero also protects against funding gaps and allows smaller institutions to use the system when funded by grants and awards, and not lose all that they’ve invested when that funding runs out.
 
@@ -95,7 +95,7 @@ Learning a new system incurs a real and possibly large upfront cost.  If we are 
 4. Expandable
 -------------
 
-There are two ways in which a data service needs to be expandable to support new science applications: (1) the addition of new science processing algorithms, (2) the addition of new datasets.  In both cases, the data service needs to add the new functionality without increasing the overall complexity of the system and without introducing risk or regressions in the current set of available services.   
+There are two ways in which a data service needs to be expandable to support new science applications: (1) the addition of new science processing algorithms, (2) the addition of new datasets.  In both cases, the data service needs to add the new functionality without increasing the overall complexity of the system and without introducing risk or regressions in the current set of available services.
 
 5. Scalable
 -----------
@@ -114,7 +114,7 @@ How Does SlideRule Work?
 .. figure:: ../assets/processing_flow.png
     :align: center
     :alt: SlideRule Processing Workflow
-    
+
     Figure 2: SlideRule's Processing Workflow
 
 The University of Washington’s deployment of SlideRule runs in AWS us-west-2 and consists of a set of EC2 instances that have access to NASA’s Cumulus datasets in S3, and NASA’s CMR system.  A user Python script can be running anywhere as long as it has access to the internet.  When using SlideRule’s Python client, a processing request from a user script has four primary stages:
@@ -127,7 +127,7 @@ The University of Washington’s deployment of SlideRule runs in AWS us-west-2 a
 
 :4. Processing the data: The set of resources that need to be processed are distributed across the available compute nodes and results are collected into a GeoDataFrame which is returned to the user upon completion of the request.
 
-Diving down a little deeper, the fourth stage of each request – processing the data – can be further broken down into three parallel processes, each owned by the three main components of SlideRule: 
+Diving down a little deeper, the fourth stage of each request – processing the data – can be further broken down into three parallel processes, each owned by the three main components of SlideRule:
 
 .. figure:: ../assets/processing_components.png
     :align: center
@@ -145,7 +145,7 @@ Diving down a little deeper, the fourth stage of each request – processing the
 What Technology is Used by SlideRule?
 #####################################
 
-The main technologies used to implement SlideRule are **Terraform** for provisioning resources in AWS, **Docker** for containerizing the components of the application, and **Grafana** / **Prometheus** / **Loki** for observability. 
+The main technologies used to implement SlideRule are **Terraform** for provisioning resources in AWS, **Docker** for containerizing the components of the application, and **Grafana** / **Prometheus** / **Loki** for observability.
 
 
 .. figure:: ../assets/sysarch.png
