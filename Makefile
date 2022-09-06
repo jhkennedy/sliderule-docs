@@ -1,7 +1,6 @@
 ROOT = $(shell pwd)
 STAGE = $(ROOT)/stage
 WEBSITE_STAGE_DIR ?= $(STAGE)/website
-WEBSITE_DOCKER_TAG ?= icesat2sliderule/website:latest
 
 all: website
 
@@ -29,15 +28,6 @@ distclean: ## delete all build artifacts
 	- rm -Rf jekyll/_site
 	- rm -Rf jekyll/.jekyll-cache
 	- rm -Rf rtd/build
-
-website-docker: distclean ## build the website docker container
-	docker build -t $(WEBSITE_DOCKER_TAG) .
-
-website-docker-no-cache: distclean ## build the website docker container
-	docker build -t $(WEBSITE_DOCKER_TAG) . --no-cache
-
-website-docker-run: ## run the website docker container
-	docker run -it --rm --name=website -p 4000:4000 $(WEBSITE_DOCKER_TAG)
 
 help: ## That's me!
 	@printf "\033[37m%-30s\033[0m %s\n" "#-----------------------------------------------------------------------------------------"
