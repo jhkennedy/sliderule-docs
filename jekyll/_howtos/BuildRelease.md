@@ -31,7 +31,7 @@ Releasing and deploying SlideRule consists of the following steps:
 ```bash
 $ cd {root}/sliderule
 $ make distclean
-$ make development-config
+$ make config-development
 $ make
 $ sudo make install
 $ sliderule scripts/selftests/test_runner.lua
@@ -144,7 +144,7 @@ $ python utils/region_of_interest.py examples/grandmesa.geojson
 ```bash
 $ cd {root}/sliderule
 $ make distclean
-$ make python-config
+$ make config-python
 $ make
 $ cd build
 $ cp {root}/sliderule-icesat2/tests/perftest.py .
@@ -237,10 +237,10 @@ $ pytest --server="{vX.Y.Z-node-manager ip address}"
 
 ### VIII. Final Steps
 
-1. Route traffic from `icesat2sliderule.org` to the public IP address of the {vX.Y.Z-node-manager}
+1. Route traffic from `slideruleearth.io` to the public IP address of the {vX.Y.Z-node-manager}
 * Go to "Route 53" in the AWS web console
 * Click on the "Hosted Zone" link under "DNS Management"
-* Click the icesat2sliderule.org domain link
+* Click the slideruleearth.io domain link
 * Select the simple routing rule (type A) record
 * Click the button to "Edit record"
 * Change the Value of the IP address to the new IP address

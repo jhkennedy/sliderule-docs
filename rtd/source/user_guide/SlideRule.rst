@@ -377,7 +377,7 @@ h5
     .. code-block:: python
 
         >>> import sliderule
-        >>> sliderule.set_url("icesat2sliderule.org")
+        >>> sliderule.set_url("slideruleearth.io")
         >>> asset = "nsidc-s3"
         >>> resource = "ATL03_20181019065445_03150111_003_01.h5"
         >>> dataset = "/gt1r/geolocation/segment_ph_cnt"
@@ -434,7 +434,7 @@ h5p
     .. code-block:: python
 
         >>> import sliderule
-        >>> sliderule.set_url("icesat2sliderule.org")
+        >>> sliderule.set_url("slideruleearth.io")
         >>> asset = "nsidc-s3"
         >>> resource = "ATL03_20181019065445_03150111_003_01.h5"
         >>> dataset = "/gt1r/geolocation/segment_ph_cnt"

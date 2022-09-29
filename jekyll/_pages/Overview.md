@@ -13,7 +13,7 @@ category: user
 
 ___SlideRule___ is a server-side framework implemented in C++/Lua that provides REST APIs for processing science data and returning results. _SlideRule_ can be used by researchers and other data systems for low-latency access to customized data products generated using processing parameters supplied at the time of the request.
 
-_SlideRule_ runs in AWS us-west-2 and has access to the official ICESat-2 datasets hosted by the NSIDC. While its web services can be accessed by any http client (e.g. curl), a [Python client](https://github.com/ICESat2-SlideRule/sliderule-python) is provided that makes it easier to interact with _SlideRule_.  The ICESat-2 SlideRule deployment is accessed at [icesat2sliderule.org](/).
+_SlideRule_ runs in AWS us-west-2 and has access to the official ICESat-2 datasets hosted by the NSIDC. While its web services can be accessed by any http client (e.g. curl), a [Python client](https://github.com/ICESat2-SlideRule/sliderule-python) is provided that makes it easier to interact with _SlideRule_.  The ICESat-2 SlideRule deployment is accessed at [slideruleearth.io](/).
 
 The development of _SlideRule_ is led by The University of Washington in conjunction with the  ICESat-2 program.  The initial use of SlideRule is to support science investigations using ICESat-2's ATL03, ATL06, and ATL08 datasets.
 

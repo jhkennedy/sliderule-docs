@@ -3,7 +3,7 @@ Getting Started
 ===============
 
 This documentation is intended to explain how to use `SlideRule`, an on-demand science data processing service, and its accompanying Python client.
-`SlideRule` is hosted at ``icesat2sliderule.org`` and responds to REST API calls to process and return science results.
+`SlideRule` is hosted at ``slideruleearth.io`` and responds to REST API calls to process and return science results.
 The software was originally developed to support science applications for `NASA's Ice Cloud and land Elevation Satellite-2 (ICESat-2)`__,
 but has the goal of demonstrating a new paradigm for providing science data products to researchers.
 Future enhancements to SlideRule include adding datasets from new missions and including algorithms for different types of science applications.
@@ -33,7 +33,7 @@ The `SlideRule` service provides a number of services which allow a user to proc
                    {"lon": -108.3435200747503, "lat": 38.89102961045247} ]
 
     # initialize (3)
-    icesat2.init("icesat2sliderule.org")
+    icesat2.init("slideruleearth.io")
 
     # processing parameters (4)
     parms = {

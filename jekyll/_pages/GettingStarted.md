@@ -13,7 +13,7 @@ category: user
 
 SlideRule is a C++/Lua framework for on-demand science data processing. It is used to build scalable systems that can process datasets and return customized results based on user provided parameters.  Its goal is to enable investigations which require processing science data in ways that were either unintended or may be inefficient given the original structure of the data.
 
-The University of Washington has partnered with the ICESat-2 program to develop and deploy an instantiation of SlideRule to AWS us-west-2 in order to support science investigations using ICESat-2's ATL03, ATL06, and ATL08 datasets.  The ICESat-2 SlideRule deployment is accessed at [icesat2sliderule.org](/).
+The University of Washington has partnered with the ICESat-2 program to develop and deploy an instantiation of SlideRule to AWS us-west-2 in order to support science investigations using ICESat-2's ATL03, ATL06, and ATL08 datasets.  The ICESat-2 SlideRule deployment is accessed at [slideruleearth.io](/).
 
 For a top down explanation of the deployment's architecture and various components, see the [Overview](/overview/).
 
@@ -21,7 +21,7 @@ For a top down explanation of the deployment's architecture and various componen
 
 While it is possible to directly access all of ICESat-2 SlideRule's services using any client that communicates over HTTP, it is more practical to use the supplied [Python client](https://github.com/ICESat2-SlideRule/sliderule-python), which hides much of the complexity of interacting with each of the services and provides a high-level Python interface for most use-cases.
 
-For this reason, _"using"_ SlideRule is, in practice, the same as writing a Python script that uses the SlideRule-Python client package.  The Python client is used to issue science processing requests to `icesat2sliderule.org` and then analyze the responses that come back.
+For this reason, _"using"_ SlideRule is, in practice, the same as writing a Python script that uses the SlideRule-Python client package.  The Python client is used to issue science processing requests to `slideruleearth.io` and then analyze the responses that come back.
 
 These processing requests will typically specify a geospatial region of interest (e.g. defined by a GeoJSON file) and instruct the SlideRule system what algorithms it wants to have run on the ICESat-2 data collected within that region.  When SlideRule receives the request, it reads the appropriate source datasets, executes the requested algorithms on that data, and returns the results back to the requesting application.
 
@@ -56,7 +56,7 @@ __Step 1__: Import the SlideRule Python package for ICESat-2.
 
 __Step 2__: Initialize the `icesat2` package .
 ```python
->>> icesat2.init("icesat2sliderule.org", verbose=True)
+>>> icesat2.init("slideruleearth.io", verbose=True)
 ```
 In general, it is only necessary to provide the _url_ to the `init` function; but for this example we are also turning on _verbose_ log messages so we can get more insight into what is happening.  For a full description of the options available when initializing the `icesat2` package, see the [init](/rtd/user_guide/ICESat-2.html#init) documentation.
 
@@ -122,4 +122,4 @@ The resulting plot should look something like:
 
 Once you've completed this walk-through and are comfortable issuing processing requests to SlideRule, you should take a look at the [Documentation](/rtd/) and the example [Jupyter Notebooks](/rtd/getting_started/Examples.html).
 
-There is also a [Demo Application](http://voila.icesat2sliderule.org/) which renders a simple [widgets-based notebook](https://github.com/ICESat2-SlideRule/sliderule-python/blob/main/examples/voila_demo.ipynb) using *voila* that allows you to try different processing parameters and see the output on an interactive map.
+There is also a [Demo Application](https://demo.slideruleearth.io/) which renders a simple [widgets-based notebook](https://github.com/ICESat2-SlideRule/sliderule-python/blob/main/examples/voila_demo.ipynb) using *voila* that allows you to try different processing parameters and see the output on an interactive map.

@@ -25,7 +25,7 @@ Where To Begin
 
     Try out an interactive widgets demo.
 
-    .. link-button:: http://voila.icesat2sliderule.org
+    .. link-button:: https://demo.slideruleearth.io
         :text: Run Demo
         :classes: stretched-link btn-outline-primary btn-block
 
