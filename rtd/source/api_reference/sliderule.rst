@@ -35,8 +35,14 @@ set_rqst_timeout
 
 """"""""""""""""
 
+update_available_servers
+------------------------
+.. autofunction:: sliderule.update_available_servers
+
+""""""""""""""""
+
 authenticate
-----------------
+------------
 .. autofunction:: sliderule.authenticate
 
 """"""""""""""""
