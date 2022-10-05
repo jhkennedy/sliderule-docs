@@ -16,7 +16,7 @@ minimal_mistakes_skin    : "air" # "air", "aqua", "contrast", "dark", "dirt", "n
 
 # Site Settings
 locale                   : "en-US"
-title                    : "ICESat-2 SlideRule"
+title                    : "SlideRule Earth"
 title_separator          : "|"
 subtitle                 : "science data processing as a service"
 name                     : "University of Washington"
@@ -115,9 +115,6 @@ author:
     - label: "ICESat-2 Plugin"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/ICESat2-SlideRule/sliderule-icesat2"
-    - label: "Docker"
-      icon: "fab fa-fw fa-docker"
-      url: "https://hub.docker.com/u/icesat2sliderule"
     - label: "PyPi"
       icon: "fab fa-fw fa-python"
       url: "https://pypi.org/project/sliderule/"
@@ -137,9 +134,6 @@ footer:
     - label: "ICESat-2 Plugin"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/ICESat2-SlideRule/sliderule-icesat2"
-    - label: "Docker"
-      icon: "fab fa-fw fa-docker"
-      url: "https://hub.docker.com/u/icesat2sliderule"
     - label: "PyPi"
       icon: "fab fa-fw fa-python"
       url: "https://pypi.org/project/sliderule/"
