@@ -17,7 +17,7 @@ _SlideRule_ runs in AWS us-west-2 and has access to the official ICESat-2 datase
 
 The development of _SlideRule_ is led by The University of Washington in conjunction with the  ICESat-2 program.  The initial use of SlideRule is to support science investigations using ICESat-2's ATL03, ATL06, and ATL08 datasets.
 
-For a quick start guide that walks you through using SlideRule right away, see the [Getting Started Guide](/gettingstarted/).  What follows is a detailed look at SlideRule's architecture and the various components that make up the system.
+For a quick start guide that walks you through using SlideRule right away, see the [Beginner's Tutorial](/tutorial/).  What follows is a detailed look at SlideRule's architecture and the various components that make up the system.
 
 ## System Block Diagram
 
@@ -84,6 +84,6 @@ __(7)__ Python client parses and reconstructs the results into native Python dat
 
 ## Next Steps
 
-* If you are looking to get started processing ICESat-2 data right away, take a look at the [Getting Started Guide](/gettingstarted/).
+* If you are looking to get started processing ICESat-2 data right away, take a look at the [Beginner's Tutorial](/tutorial/).
 * If you want to learn about the available Python API functions for SlideRule, see the [Documentation](/rtd/).
 * If you are interested in how SlideRule efficiently accesses HDF5 data in S3, see the [H5Coro](/h5coro/) detailed description.

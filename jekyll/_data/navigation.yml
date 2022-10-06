@@ -1,6 +1,4 @@
 main:
-  - title: "Getting Start Guide"
-    url: /gettingstarted/
   - title: "Documentation"
     url: /rtd/
   - title: "Contact Us"

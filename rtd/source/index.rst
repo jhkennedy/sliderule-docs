@@ -1,10 +1,10 @@
 ================
-sliderule-python
+sliderule
 ================
 
-**Process ICESat-2 datasets in the cloud through REST API calls to SlideRule web services.**
+**Process Earth science datasets in the cloud through REST API calls to SlideRule web services.**
 
-SlideRule is a web service for on-demand science data processing, which provides researchers and other Earth science data systems low-latency access to customized data products using processing parameters supplied at the time of the request. SlideRule runs in AWS us-west-2 and has access to the official ICESat-2 datasets hosted by the NSIDC.
+SlideRule is a web service for on-demand science data processing, which provides researchers and other Earth science data systems low-latency access to customized data products using processing parameters supplied at the time of the request. SlideRule runs in AWS us-west-2 and has access to ICESat-2, GEDI, Landsat, and ArcticDEM datasets stored in S3.
 
 The Python client for SlideRule provides a local script interface for making function calls that interact with SlideRule.
 
@@ -100,3 +100,10 @@ The SlideRule project is funded by NASA's ICESat-2 program and is led by the Uni
    api_reference/icesat2.rst
    api_reference/ipxapi.rst
    api_reference/sliderule.rst
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+   :caption: Release Notes
+
+   release_notes/release_notes.rst

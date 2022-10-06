@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Getting Started Guide"
+title: "Beginner's Tutorial"
 date: 2021-04-22 11:35:14 -0400
 author_profile: true
 toc: true
