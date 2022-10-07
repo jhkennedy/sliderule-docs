@@ -1,23 +1,14 @@
----
-layout: single
-title: "Beginner's Tutorial"
-date: 2021-04-22 11:35:14 -0400
-author_profile: true
-toc: true
-toc_sticky: true
-permalink: /gettingstarted/
-category: user
----
+# Making Your First Request
+
+2021-04-22
 
 ## Overview
 
-SlideRule is a C++/Lua framework for on-demand science data processing. It is used to build scalable systems that can process datasets and return customized results based on user provided parameters.  Its goal is to enable investigations which require processing science data in ways that were either unintended or may be inefficient given the original structure of the data.
+This tutorial walks you through the steps necessary to make your first request to SlideRule. By the end of this tutorial you will have used SlideRule to caclulate and plot elevations over Grand Mesa, Colorado, using ICESat-2 photon cloud data.
 
-The University of Washington has partnered with the ICESat-2 program to develop and deploy an instantiation of SlideRule to AWS us-west-2 in order to support science investigations using ICESat-2's ATL03, ATL06, and ATL08 datasets.  The ICESat-2 SlideRule deployment is accessed at [slideruleearth.io](/).
+**Prerequisites**: This walk-through assumes you are comfortable using `git` and the `conda` Python packaging system. See the [installation](/rtd/getting_started/Install.html) instructions in the reference documentation for details on other methods of installation.
 
-For a top down explanation of the deployment's architecture and various components, see the [Overview](/overview/).
-
-## How Do You Use SlideRule
+## Background
 
 While it is possible to directly access all of ICESat-2 SlideRule's services using any client that communicates over HTTP, it is more practical to use the supplied [Python client](https://github.com/ICESat2-SlideRule/sliderule-python), which hides much of the complexity of interacting with each of the services and provides a high-level Python interface for most use-cases.
 
@@ -26,8 +17,6 @@ For this reason, _"using"_ SlideRule is, in practice, the same as writing a Pyth
 These processing requests will typically specify a geospatial region of interest (e.g. defined by a GeoJSON file) and instruct the SlideRule system what algorithms it wants to have run on the ICESat-2 data collected within that region.  When SlideRule receives the request, it reads the appropriate source datasets, executes the requested algorithms on that data, and returns the results back to the requesting application.
 
 ## Setting Up Your System
-
-This walk-through assumes you are comfortable using `git` and the `conda` Python packaging system. See the [installation](/rtd/getting_started/Install.html) instructions in the reference documentation for details on other methods of installation.
 
 __Step 1__: Clone the Python client repository
 ```bash
