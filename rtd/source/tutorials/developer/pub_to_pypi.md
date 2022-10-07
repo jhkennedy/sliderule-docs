@@ -1,15 +1,12 @@
----
-layout: single
-title: "Publishing Python Packages"
-date: 2021-07-15 12:00:00 -0400
-toc: true
-toc_sticky: true
-category: developer
----
+# Publishing Python Packages to PyPI
 
-How to build and publish sliderule-python for PyPI and Conda Forge.
+2021-07-15
 
-## PyPI
+## Overview
+
+How to build and publish sliderule-python for PyPI.
+
+## Steps
 
 The ___sliderule___ PyPI package is located at https://pypi.org/project/sliderule/.
 

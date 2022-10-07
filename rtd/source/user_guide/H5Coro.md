@@ -1,15 +1,10 @@
----
-layout: single
-title: "H5Coro: The HDF5 Cloud-Optimized Read-Only Library"
-date: 2021-04-23 10:35:00 -0400
-author_profile: true
-toc: true
-toc_sticky: true
-permalink: /h5coro/
-category: user
----
+# H5Coro
+
+2021-04-23
 
 ## Executive Summary
+
+The HDF5 Cloud-Optimized Read-Only Library
 
 NASA’s migration of science data products and services to AWS has sparked a debate on the best way to access science data stored in the cloud.  Given that a large portion of NASA’s science data is in the HDF5 format or one of its derivatives, a growing number of efforts are looking at ways to efficiently access H5 files residing in S3.  This article describes one of those efforts and argues for the creation of a standardized subset of the HDF5 specification targeting cloud environments.
 
@@ -113,7 +108,7 @@ Given that S3 has high-throughput and high-latency, the library strives to minim
 
 ## Where H5Coro Fits In
 
-![where h5coro fits in](/assets/images/where_h5coro_fits_in.png){: .align-center}
+![where h5coro fits in](../../../jekyll/assets/images/where_h5coro_fits_in.png){: .align-center}
 
 ## Performance Comparisons
 
@@ -121,7 +116,7 @@ The tests below were run using a local (US east coast, home computer) Python scr
 
 Some of the test runs were executed multiple times, while others were only executed once.  The two largest sources of variability were S3 performance and local file system caching.  Every attempt was made to limit variability in the data below, but the results should still only be considered a sampling of performance and not a predicted performance estimate.
 
-![h5 performance comparison](/assets/images/h5_perf.png){: .align-center}
+![h5 performance comparison](../../../jekyll/assets/images/h5_perf.png){: .align-center}
 
 The performance improvement gained by switching from the HDF5 library to the H5Coro library for reading the original dataset out of S3 is anywhere from a factor of 77 to 132 depending on which configurations are compared against each other.
 
