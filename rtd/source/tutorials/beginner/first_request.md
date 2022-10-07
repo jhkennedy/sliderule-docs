@@ -53,7 +53,7 @@ __Step 3__: Create a list of coordinates that represent the Grand Mesa region of
 ```python
 >>> grand_mesa = icesat2.toregion('grandmesa.geojson')
 ```
-The [grandmesa.geojson](../../assets/grandmesa.geojson) file used in this example can be downloaded by clicking on the link; alternatively, you can create your own GeoJSON file at [geojson.io](https://geojson.io).
+The **grandmesa.geojson** file used in this example can be downloaded by navigating to our [downloads](/rtd/tutorials/downloads.html) page; alternatively, you can create your own GeoJSON file at [geojson.io](https://geojson.io).
 
 The `toregion` function creates a representation of the geospatial region that is understood by SlideRule.  It accepts both GeoJSON files and Shapefiles.  For a full description of the function, see the [toregion](../../user_guide/ICESat-2.html#toregion) documentation.
 
