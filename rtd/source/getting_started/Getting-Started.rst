@@ -95,4 +95,4 @@ the `API Reference <../api_reference>`_.
 Next Steps
 ####################
 
-You can checkout the `examples <Eeamples.html>`_  provided in this guide, or move on to the `tutorials </rtd/tutorials/beginner.html>`_ section below.
+You can checkout the `examples <Examples.html>`_  provided in this guide, or move on to the `tutorials </rtd/tutorials/beginner.html>`_ section below.
