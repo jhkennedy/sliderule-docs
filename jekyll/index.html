@@ -7,8 +7,8 @@ header:
   overlay_filter: "0.5"
   overlay_image: /assets/images/nz_glacier.jpeg
   actions:
-    - label: "Documentation"
-      url: /rtd/
+    - label: "Getting Started"
+      url: /rtd/getting_started/Getting-Started.html
 excerpt: "Process Earth science datasets in the cloud through REST API calls to SlideRule web services."
 opening:
 - title: 'What Is SlideRule?'
@@ -16,25 +16,22 @@ intro:
 - excerpt: '___SlideRule___ is a server-side framework implemented in C++/Lua that provides REST APIs for processing science data and returning results. This enables researchers and other data systems to have low-latency access to generated data products using processing parameters supplied at the time of the request.  _SlideRule_ runs in AWS us-west-2 and has access to ICESat-2, GEDI, Landsat, and ArcticDEM datasets stored in S3. While its web services can be accessed by any http client (e.g. curl), a [Python client](https://github.com/ICESat2-SlideRule/sliderule-python) is provided that makes it easier to interact with _SlideRule_.'
 feature_row:
   - image_path: /assets/images/system.png
-    alt: "system design"
-    title: "Overview"
-    excerpt: "A top down look at SlideRule's architecture and various components"
-    url: /overview/
-    btn_label: "Read More"
+    alt: "demonstration"
+    url: /rtd/
+    btn_label: "Documentation"
     btn_class: "btn--primary"
+    title: "Detailed documentation for data users"
   - image_path: /assets/images/h5.png
     alt: "h5"
-    title: "H5Coro"
-    excerpt: "A description of SlideRule's HDF5 Cloud-Optimized Read-Only library"
-    url: "/h5coro/"
-    btn_label: "Read More"
+    url: https://demo.slideruleearth.io
+    btn_label: "Demo"
     btn_class: "btn--primary"
+    title: "Web-based graphical user interface"
   - image_path: /assets/images/api.png
-    title: "Documentation"
-    excerpt: "Documentation on SlideRule's REST APIs and Python client"
-    url: /rtd/
-    btn_label: "Read More"
+    url: https://ps.slideruleearth.io
+    btn_label: "Accounts"
     btn_class: "btn--primary"
+    title: "Private clusters dedicated to your organization"
 ---
 
 {% include feature_row id="opening" type="center" %}

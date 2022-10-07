@@ -14,6 +14,10 @@ While `SlideRule` can be accessed by any http client (e.g. curl) by making GET a
 the python packages in this repository provide higher level access to SlideRule by hiding the GET and POST requests inside python function
 calls that accept and return basic python variable types (e.g. dictionaries, lists, numbers), and GeoDataFrames.
 
+Installation
+############
+
+If you haven't already, install the SlideRule Python Client using the `instructions <Install.html>`_ provided.
 
 Basic Usage
 ###########
@@ -87,3 +91,8 @@ the `API Reference <../api_reference>`_.
          - Uses icepyx region to subset ATL03 granuels in parallel and return the photon data
        * - `source <../api_reference/sliderule.html#source>`_
          - Perform a direct API call to a SlideRule service
+
+Next Steps
+####################
+
+You can checkout the `examples <Eeamples.html>`_  provided in this guide, or move on to the `tutorials </rtd/tutorials/beginner.html>`_ section below.
