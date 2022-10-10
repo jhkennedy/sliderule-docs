@@ -163,8 +163,8 @@ newgrp docker
 ### 12. Installing Docker-Compose
 
 ```bash
-wget https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64
-sudo mv docker-compose-Linux-x86_64 /usr/local/bin/docker-compose
+wget https://github.com/docker/compose/releases/download/v2.11.2/docker-compose-linux-aarch64
+sudo mv docker-compose-linux-aarch64 /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
