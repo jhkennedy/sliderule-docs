@@ -12,7 +12,7 @@ The ICESat-2 API queries a set of ATL03 input granules for photon heights and lo
 1.1 Assets
 ----------
 
-When accessing SlideRule as a service, there are many times when you need to specify which source datasets it should use when processing the data.
+When accessing SlideRule as a service, there are times when you need to specify which source datasets it should use when processing the data.
 A source dataset is called an **asset** and is specified by its name as a string.
 
 The asset name tells SlideRule where to get the data, and what format the data should be in. The following assets are supported by the ICESat-2 deployment of SlideRule:
@@ -27,7 +27,7 @@ The asset name tells SlideRule where to get the data, and what format the data s
 2. Parameters
 =============
 
-Parameters are passed to the SlideRule API as a dictionary in any order, but may be loosely divided into four groups: geographic and temporal parameters, classification parameters, extent parameters, and segment quality parameters.  Not all parameters need to be defined when making a request; there are reasonable defaults used for each parameter so that only those parameters that you want to customize need to be specified.
+Parameters are passed to the SlideRule API as a dictionary in any order, but may be loosely divided into five groups: geographic and temporal parameters, classification parameters, extent parameters, segment quality parameters, ancillary field parameters.  Not all parameters need to be defined when making a request; there are reasonable defaults used for each parameter so that only those parameters that you want to customize need to be specified.
 
 2.1 Photon-input parameters
 ---------------------------
@@ -35,6 +35,7 @@ Parameters are passed to the SlideRule API as a dictionary in any order, but may
 The photon-input parameters allow the user to select an area, a time range, or a specific ATL03 granule to use for input to the photon-selection algorithm.  If multiple parameters are specified, the result will be those photons that match all of the parameters.
 
 * ``"poly"``: polygon defining region of interest (see `polygons <#polygons>`_)
+* ``"raster"``: geojson describing region of interest which enables rasterized subsetting on servers (see `geojson <#geojson>`_)
 * ``"track"``: reference pair track number (1, 2, 3, or 0 to include for all three; defaults to 0)
 * ``"rgt"``: reference ground track (defaults to all if not specified)
 * ``"cycle"``: counter of 91-day repeat cycles completed by the mission (defaults to all if not specified)
@@ -59,14 +60,29 @@ For example:
 
 In order to facilitate other formats, the ``icesat2.toregion`` function can be used to convert polygons from the GeoJSON and Shapefile formats to the format accepted by `SlideRule`.
 
-Note that the maximum number of points in a polygon supported by SlideRule is 16384, and as the number of points in the polygon grows,
-the amount of time it takes to process grows as well.
-It is recommended for performance reasons that polygons are kept to fewer than 32 points.
-Use the ``icesat2.toregion`` function's tolerance parameter to reduce the number of points in a provided shape.
+There is no limit to the number of points in the polygon, but note that as the number of points grow, the amount of time it takes to perform the subsetting process also grows. For that reason, it is recommended that if your polygon has more than a few hundred points, it is best to enable rasterization option described in `geojson <#geojson>`_.
 
-2.1.2 Time
+2.1.2 GeoJSON
+###############
+
+One of the outputs of the ``icesat2.toregion`` function is a GeoJSON object that describes the region of interest.  It is available under the ``"raster"`` element of the returned dictionary.
+
+When supplied in the parameters sent in the request, the server side software forgoes using the polygon for subsetting operations, and instead builds a raster of the GeoJSON object using the specified cellsize, and then uses that raster image as a mask to determine which points along the ground track are included in the region of interest.
+
+For regions of interest that are complex and include many holes where a single track may have multiple intesecting and non-intersecting segments, the rasterized subsetting function is much more performant and the cost of the resolution of the subsetting operation.
+
+The example code below shows how this option can be enabled and used (note, the ``"poly"`` parameter is still required):
+
+.. code-block:: python
+
+    region = icesat2.toregion('examples/grandmesa.geojson', cellsize=0.02)
+    parms = {
+        "poly": region['poly'],
+        "raster": region['raster']
+    }
+
+2.1.3 Time
 ##############
-
 
 All times returned in result records are in number of seconds (fractual, double precision) since the ATLAS Standard Data Product (SDP) epoch which is January 1, 2018 at midnight (2018-01-01:T00.00.00.000000Z).
 
@@ -91,8 +107,7 @@ ATL03 contains a set of photon classification values, that are designed to ident
 * ``"cnf"``: confidence level for photon selection, can be supplied as a single value (which means the confidence must be at least that), or a list (which means the confidence must be in the list)
 * ``"quality_ph"``: quality classification based on an ATL03 algorithms that attempt to identify instrumental artifacts, can be supplied as a single value (which means the classification must be exactly that), or a list (which means the classification must be in the list).
 
-The signal confidence can be supplied as strings {"atl03_tep", "atl03_not_considered", "atl03_background", "atl03_within_10m", "atl03_low", "atl03_medium", "atl03_high"}
-or as numbers {-2, -1, 0, 1, 2, 3, 4}.
+The signal confidence can be supplied as strings {"atl03_tep", "atl03_not_considered", "atl03_background", "atl03_within_10m", "atl03_low", "atl03_medium", "atl03_high"} or as numbers {-2, -1, 0, 1, 2, 3, 4}.
 The default values, of srt=3, cnf=0, and quality_ph=0 will return all photons not flagged as instrumental artifacts, and the 'cnf' parameter will match the land-ice classification.
 
 2.2.2 ATL08 classification
@@ -153,7 +168,25 @@ The ATL06-SR algorithm fits a line segment to the photons in each extent, using 
 * ``"sigma_r_max"``: maximum robust dispersion in meters
 * ``"compact"``: return compact version of results (leaves out most metadata)
 
-2.5 Recommended parameters
+2.5 Ancillary field parameters
+---------------------------
+
+The ancillary field parameters allow the user to request additional fields from the ATL03 granule to be returned with the photon extent and ATL06-SR elevation responses.  Each field provided by the user will result in a corresponding column added to the returned GeoDataFrame.
+
+* ``"atl03_geo_fields"``: fields in the "geolocation" and "geophys_corr" groups of the ATL03 granule
+* ``"atl03_ph_fields"``: fields in the "heights" group of the ATL03 granule
+
+For example:
+
+.. code-block:: python
+
+    parms = {
+        "atl03_geo_fields":     ["solar_elevation"],
+        "atl03_ph_fields":      ["pce_mframe_cnt"]
+    }
+
+
+2.6 Recommended parameters
 ----------------------------
 
 A set of parameters that most closely matches the ICESat-2 project ATL06 product is as follows:
