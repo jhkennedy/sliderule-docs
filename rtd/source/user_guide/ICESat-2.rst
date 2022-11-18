@@ -375,7 +375,7 @@ The elevation GeoDataFrame has the following columns:
 - ``"h_sigma"``: error estimate for the least squares fit model
 
 
-4 Callbacks
+4. Callbacks
 =============
 For large processing requests, it is possible that the data returned from the API is too large or impractical to fit in the local memory of the Python interpreter making the request.
 In these cases, certain APIs in the SlideRule Python client allow the calling application to provide a callback function that is called for every result that is returned by the servers.
@@ -405,7 +405,7 @@ Here is an example of a callback being used for the ``atl03sp`` function:
 
 
 
-5 Endpoints
+5. Endpoints
 =============
 
 atl06
