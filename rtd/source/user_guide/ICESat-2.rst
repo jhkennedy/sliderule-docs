@@ -27,7 +27,7 @@ The asset name tells SlideRule where to get the data, and what format the data s
 2. Parameters
 =============
 
-Parameters are passed to the SlideRule API as a dictionary in any order, but may be loosely divided into five groups: geographic and temporal parameters, classification parameters, extent parameters, segment quality parameters, ancillary field parameters.  Not all parameters need to be defined when making a request; there are reasonable defaults used for each parameter so that only those parameters that you want to customize need to be specified.
+Parameters are passed to the SlideRule API as a dictionary in any order, but may be loosely divided into six groups: geographic and temporal parameters, classification parameters, extent parameters, segment quality parameters, ancillary field parameters, and timeout parameters.  Not all parameters need to be defined when making a request; there are reasonable defaults used for each parameter so that only those parameters that you want to customize need to be specified.
 
 2.1 Photon-input parameters
 ---------------------------
@@ -125,9 +125,9 @@ The experimental YAPC (Yet Another Photon Classifier) photon-classification sche
 * ``"yapc"``: settings for the yapc algorithm; if provided then SlideRule will execute the YAPC classification on all photons
     - ``"score"``: the minimum yapc classification score of a photon to be used in the processing request
     - ``"knn"``: the number of nearest neighbors to use, or specify 0 to allow automatic selection of the number of neighbors (recommended)
-    - ``"min_ph"``: the minimum number of photons needed in an extent in order to calculate a YAPC score for each photon
     - ``"win_h"``: the window height used to filter the nearest neighbors
     - ``"win_x"``: the window width used to filter the nearest neighbors
+    - ``"version"``: the version of the YAPC algorithm to use
 
 To run the YAPC algorithm, specify the YAPC settings as a sub-dictionary. Here is an example set of parameters that runs YAPC:
 
@@ -169,7 +169,7 @@ The ATL06-SR algorithm fits a line segment to the photons in each extent, using 
 * ``"compact"``: return compact version of results (leaves out most metadata)
 
 2.5 Ancillary field parameters
----------------------------
+------------------------------
 
 The ancillary field parameters allow the user to request additional fields from the ATL03 granule to be returned with the photon extent and ATL06-SR elevation responses.  Each field provided by the user will result in a corresponding column added to the returned GeoDataFrame.
 
@@ -185,34 +185,137 @@ For example:
         "atl03_ph_fields":      ["pce_mframe_cnt"]
     }
 
+2.6 Timeout parameters
+----------------------
 
-2.6 Recommended parameters
-----------------------------
+Each request supports setting three different timeouts. These timeouts should only need to be set by a user manually either when making extremely large processing requests, or when failing fast is necessary and default timeouts are too long.
 
-A set of parameters that most closely matches the ICESat-2 project ATL06 product is as follows:
+* ``"rqst-timeout"``: total time in seconds for request to be processed
+* ``"node-timeout"``: time in seconds for a single node to work on a distributed request (used for proxied requests)
+* ``"read-timeout"``: time in seconds for a single read of an asset to take
+* ``"timeout"``: global timeout setting that sets all timeouts at once (can be overridden by further specifying the other timeouts)
 
-.. code-block:: python
+2.7 Parameter reference table
+------------------------------
 
-    parms = {
-        "srt":3,
-        "cnf": 1,
-        "ats": 20.0,
-        "cnt": 10,
-        "len": 40.0,
-        "res": 20.0,
-        "maxi": 6
-    }
-
+The default set of parameters used by SlideRule are set to match the ICESat-2 project ATL06 settings as close as possible.
 To obtain fewer false-positive returns, this set of parameters can be modified with cnf=3 or cnf=4.
 
+.. list-table:: Request Parameters
+   :widths: 25 25 50
+   :header-rows: 1
 
-4. Returned data
+   * - Parameter
+     - Units
+     - Default
+   * - ``"atl03_geo_fields"``
+     - String/List
+     -
+   * - ``"atl03_ph_fields"``
+     - String/List
+     -
+   * - ``"atl08_class"``
+     - Integer/List or String/List
+     -
+   * - ``"ats"``
+     - Float - meters
+     - 20.0
+   * - ``"cnf"``
+     - Integer/List or String/List
+     - 1 (within 10m)
+   * - ``"cnt"``
+     - Integer
+     - 10
+   * - ``"compact"``
+     - Boolean
+     - False
+   * - ``"cycle"``
+     - Integer - orbit cycle
+     -
+   * - ``"dist_in_seg"``
+     - Boolean
+     - False
+   * - ``"H_min_win"``
+     - Float - meters
+     - 3.0
+   * - ``"len"``
+     - Float - meters
+     - 40.0
+   * - ``"maxi"``
+     - Integer
+     - 5
+   * - ``"node-timeout"``
+     - Integer - seconds
+     - 600
+   * - ``"pass_invalid"``
+     - Boolean
+     - False
+   * - ``"poly"``
+     - String - JSON
+     -
+   * - ``"quality_ph"``
+     - Integer/List or String/List
+     - 0 (nominal)
+   * - ``"raster"``
+     - String - JSON
+     -
+   * - ``"read-timeout"``
+     - Integer - seconds
+     - 600
+   * - ``"region"``
+     - Integer - orbit region
+     -
+   * - ``"res"``
+     - Float - meters
+     - 20.0
+   * - ``"rgt"``
+     - Integer - reference ground track
+     -
+   * - ``"rqst-timeout"``
+     - Integer - seconds
+     - 600
+   * - ``"sigma_r_max"``
+     - Float
+     - 5.0
+   * - ``"srt"``
+     - Integer
+     - 3 (land ice)
+   * - ``"timeout"``
+     - Integer - seconds
+     -
+   * - ``"track"``
+     - Integer - 0: all tracks, 1: gt1, 2: gt2, 3: gt3
+     - 0
+   * - ``"t0"``
+     - String - time - <YYYY>-<MM>-<DD>T<HH>:<MM>:<SS>
+     -
+   * - ``"t1"``
+     - String - time - <YYYY>-<MM>-<DD>T<HH>:<MM>:<SS>
+     -
+   * - ``"yapc.knn"``
+     - Integer
+     - 0 (calculated)
+   * - ``"yapc.score"``
+     - Integer - 0 to 255
+     - 0
+   * - ``"yapc.win_h"``
+     - Float - meters
+     - 6.0
+   * - ``"yapc.win_x"``
+     - Float - meters
+     - 15.0
+   * - ``"yapc.version"``
+     - Integer: 1 and 2: v2 algorithm, 3: v3 algorithm
+     - 3
+
+
+3. Returned data
 =========================
 
-Two main kinds of data are returned by the ICESat-2 API: segmented photon data (from the ATL03 and ATL03p algorithms), and elevation date (from the ATL06 and ATL06p algorithms).
+Two main kinds of data are returned by the ICESat-2 API: segmented photon data (from the ATL03 and ATL03p algorithms), and elevation data (from the ATL06 and ATL06p algorithms).
 
 
-4.1 Segmented Photon Data
+3.1 Segmented Photon Data
 --------------------------
 
 The photon data is stored as along-track segments inside the ATL03 granules, which is then broken apart by SlideRule and re-segmented according to processing
@@ -244,7 +347,7 @@ The GeoDataFrame for each photon extent has the following columns:
 - ``"yapc_score"``: the photon's YAPC classification (0 - 255, the larger the number the higher the confidence in surface reflection)
 
 
-4.2 Elevations
+3.2 Elevations
 --------------
 
 The primary result returned by SlideRule for ICESat-2 processing requests is a set of gridded elevations corresponding to a geolocated ATL03 along-track segment. The elevations are contained in a GEoDataFrame where each row represents a calculated elevation.
@@ -272,38 +375,37 @@ The elevation GeoDataFrame has the following columns:
 - ``"h_sigma"``: error estimate for the least squares fit model
 
 
-5 Callbacks
+4 Callbacks
 =============
 For large processing requests, it is possible that the data returned from the API is too large or impractical to fit in the local memory of the Python interpreter making the request.
-In these cases, certain APIs in the SlideRule Python client allow the calling application to provide a callback function that is called for every resource and result that is returned by the servers.
-If a callback is supplied, the API will not return anything back to the calling application and instead will assume all output is captured and handled by the callback.
+In these cases, certain APIs in the SlideRule Python client allow the calling application to provide a callback function that is called for every result that is returned by the servers.
+If a callback is supplied, the API will not return back to the calling application anything associated with the supplied record types, but assumes the callback fully handles processing the data.
 The callback function takes the following form:
 
-.. py:function:: callback (resource, result, result_cnt, total_resources)
+.. py:function:: callback (record)
 
-    Callback that handles the results of a processing request for the given resource.
+    Callback that handles the results of a processing request for the given record.
 
-    :param str resource: name of the resource being processed (i.e. granule)
-    :param GeoDataFrame result: GeoDataFrame containing the results of the processing
-    :param int result_cnt: current number of resources that have been processed
-    :param int total_resources: total number of resources that need to be processed
+    :param dict record: the record object, usually a dictionary containing data
 
-Here is an example of a callback being used for the ``atl06p`` function:
+Here is an example of a callback being used for the ``atl03sp`` function:
 
     .. code-block:: python
 
-        # create hdf5 writer
-        hdf5writer = Hdf5Writer(cfg["filename"], parms)
+        rec_cnt = 0
+        ph_cnt = 1
 
-        # atl06 processing request
-        icesat2.atl06p(parms, cfg["asset"], max_workers=cfg["max_workers"], callback=lambda resource, result, index, total : hdf5writer.run(resource, result, index, total))
+        def atl03rec_cb(rec):
+            global rec_cnt, ph_cnt
+            rec_cnt += 1
+            ph_cnt += rec["count"][0] + rec["count"][1]
+            print("{} {}".format(rec_cnt, ph_cnt), end='\r')
 
-        # close hdf5 file
-        hdf5writer.finish()
+        gdf = icesat2.atl03sp({}, callbacks = {"atl03rec": atl03rec_cb})
 
 
 
-6 Endpoints
+5 Endpoints
 =============
 
 atl06
