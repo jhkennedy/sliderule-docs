@@ -42,7 +42,7 @@ These endpoints provide node capacity management as requested by a member whose 
 
 * [Get Membership status](prov-sys/membership.md) : `GET ps.{DOMAIN}/api/membership_status/<str:org_name>/`
 
-## Endpoints that require Refresh Token
+### Endpoints that require Refresh Token
 
 * [Refresh an access token](prov-sys/refresh_token.md) : `POST ps.{{DOMAIN}}/api/org_token/refresh`
 
