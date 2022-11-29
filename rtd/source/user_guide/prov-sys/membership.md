@@ -2,7 +2,7 @@
 
 Request the membership status of the user and organization in the provided access token.
 
-**URL** : `ps.{{DOMAIN}}/api/membership_status/<str:org_name>/`
+**URL** : `ps.slideruleearth.io/api/membership_status/<str:org_name>/`
 
 **Method** : `GET`
 

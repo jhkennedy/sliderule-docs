@@ -2,7 +2,7 @@
 
 Make a given refresh token invalid
 
-**URL** : `ps.{{DOMAIN}}/api/token/blacklist/`
+**URL** : `ps.slideruleearth.io/api/token/blacklist/`
 
 **Method** : `POST`
 

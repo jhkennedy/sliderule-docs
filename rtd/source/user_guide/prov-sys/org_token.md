@@ -2,7 +2,7 @@
 
 "Login" to a api session by obtaining an access bearer token to use to authorize subsequent requests
 
-**URL** : `ps.{{DOMAIN}}/api/org_token/`
+**URL** : `ps.slideruleearth.io/api/org_token/`
 
 **Method** : `POST`
 

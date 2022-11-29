@@ -2,7 +2,7 @@
 
 Request a new access token using a Refresh token
 
-**URL** : `ps.{{DOMAIN}}/api/org_token/refresh/`
+**URL** : `ps.slideruleearth.io/api/org_token/refresh/`
 
 **Method** : `POST`
 

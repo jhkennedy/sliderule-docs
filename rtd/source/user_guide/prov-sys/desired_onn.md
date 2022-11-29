@@ -2,7 +2,7 @@
 
 Request that a minimum number of nodes be provisioned for the cluster of the organization specified in the url for the duration of the provided token.
 
-**URL** : `ps.{{DOMAIN}}/api/desired_org_num_nodes/<str:org_name>/<int:desired_num_nodes>/`
+**URL** : `ps.slideruleearth.io/api/desired_org_num_nodes/<str:org_name>/<int:desired_num_nodes>/`
 
 **Method** : `PUT`
 

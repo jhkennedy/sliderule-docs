@@ -2,9 +2,9 @@
 
 Request that a minimum number of nodes be provisioned for the cluster of the organization specified in the url for the the specified time to live (in minutes).
 
-**URL** : `ps.{{DOMAIN}}/api/desired_org_num_nodes/<str:org_name>/<int:desired_num_nodes>/<int:ttl in minutes>/`
+**URL** : `ps.slideruleearth.io/api/desired_org_num_nodes/<str:org_name>/<int:desired_num_nodes>/<int:ttl in minutes>/`
 
-**Method** : `PUT`
+**Method** : `POST`
 
 **Auth required** : Yes. A valid access token for the organization must be included in the Authorization Header Bearer field
 

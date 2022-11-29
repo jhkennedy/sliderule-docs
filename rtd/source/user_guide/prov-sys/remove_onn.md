@@ -2,7 +2,7 @@
 
 Request to remove any outstanding org number of nodes requests for the organization specified and the authorized user in the bearer token
 
-**URL** : `ps.{{DOMAIN}}/api/remove_org_num_nodes/<str:org_name>/`
+**URL** : `ps.slideruleearth.io/api/remove_org_num_nodes/<str:org_name>/`
 
 **Method** : `PUT`
 

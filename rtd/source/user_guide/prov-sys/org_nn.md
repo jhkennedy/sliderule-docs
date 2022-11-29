@@ -2,7 +2,7 @@
 
 Get the number of nodes currently deployed in the cluster for the organization along with the minimum and maximum allowed for the cluster
 
-**URL** : `ps.{{DOMAIN}}/api/org_num_nodes/<str:org_name>/`
+**URL** : `ps.slideruleearth.io/api/org_num_nodes/<str:org_name>/`
 
 **Method** : `GET`
 
