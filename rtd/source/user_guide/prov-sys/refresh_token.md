@@ -1,6 +1,6 @@
 # Refresh an access token 
 
-Request a new access token using a Refresh token
+Request a new access token using a refresh token
 
 **URL** : `ps.slideruleearth.io/api/org_token/refresh/`
 
@@ -52,7 +52,7 @@ https://ps.slideruleearth.io/api/org_token/refresh/
 **Notes**
 
 
-## Error Response
+## Error Responses
 
 **Condition** : typo in the URL, i.e. invalid url
 
@@ -60,7 +60,7 @@ https://ps.slideruleearth.io/api/org_token/refresh/
 
 **Content** : `{The requested resource was not found on this server.}`
 
- ### Or
+ **--- Or ---**
 
  **Condition** : The user in refresh token claim is NOT a member of the organization
 
@@ -70,7 +70,8 @@ https://ps.slideruleearth.io/api/org_token/refresh/
  ```json
  "detail": "{user} is NOT a member of {organization}"
  ```
-### OR
+**--- Or ---**
+
 **Condition** : The access token is invalid
 
 **Code** : `403 Forbidden`
@@ -80,7 +81,7 @@ https://ps.slideruleearth.io/api/org_token/refresh/
  "detail": "Given token not valid for any token type"
  ```
 
-### OR
+**--- Or ---**
 
 **Condition** : The refresh token is blacklisted (i.e. has already been used)
 

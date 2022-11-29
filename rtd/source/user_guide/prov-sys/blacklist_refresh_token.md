@@ -1,4 +1,4 @@
-# Blacklist a Refresh token 
+# Blacklist a refresh token 
 
 Make a given refresh token invalid
 
@@ -47,7 +47,7 @@ The response is a Null json string
 ```
 **Notes**
 
-## Error Response
+## Error Responses
 
 **Condition** : typo in the URL, i.e. invalid url
 
@@ -55,7 +55,8 @@ The response is a Null json string
 
 **Content** : `{The requested resource was not found on this server.}`
 
-### OR
+**--- Or ---**
+
 **Condition** : The token is invalid
 
 **Code** : `403 Forbidden`
@@ -65,7 +66,7 @@ The response is a Null json string
  "detail": "Given token not valid for any token type"
  ```
 
-### OR
+**--- Or ---**
 
 **Condition** : The refresh token is blacklisted (i.e. has already been used)
 

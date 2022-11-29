@@ -37,7 +37,7 @@ curl -X PUT \
 
 The response has a status field which indicated that the request was queued. The response has a msg field that inidicated that no update was initiated (because the cluster already had one node deployed). The msg field also indicates that list of queued requests. The queued requests contain the name of the cluster, the user that made the request, the number of nodes requested, and the expiration of the request. The response also has an error_msg field which is blank when the request is successful
 
-## Error Response
+## Error Responses
 
 **Condition** : typo in the URL, i.e. invalid url
 
@@ -46,7 +46,7 @@ The response has a status field which indicated that the request was queued. The
 **Content** : 
 `{The requested resource was not found on this server.}`
 
-### Or
+**--- Or ---**
 
 **Condition** : If a token for the wrong organization was provided
 

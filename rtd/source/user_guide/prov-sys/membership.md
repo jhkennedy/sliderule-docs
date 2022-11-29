@@ -17,7 +17,8 @@ N/A
 **Curl Example**
 ```
 curl -X GET \
-    -H '"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY4MTgxOTYzLCJpYXQiOjE2NjgwOTU1NjMsImp0aSI6ImJmYjIxMmExMzU0ZjQ4NGFhY2E2NmVjYWJmMmE3Mjg4Iiwib3JnX25hbWUiOiJVb2ZNRFRlc3QiLCJ1c2VyX25hbWUiOiJjZXVnYXJ0ZWJsYWlyIiwidXNlcl9pZCI6M30.nl1ACnWcoROhZ7K_HKOCOVfbqiDPBzmPdEPnAdb2vxk" \ https://ps.slideruleearth.io/api/membership_status/sliderule/
+    -H '"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY4MTgxOTYzLCJpYXQiOjE2NjgwOTU1NjMsImp0aSI6ImJmYjIxMmExMzU0ZjQ4NGFhY2E2NmVjYWJmMmE3Mjg4Iiwib3JnX25hbWUiOiJVb2ZNRFRlc3QiLCJ1c2VyX25hbWUiOiJjZXVnYXJ0ZWJsYWlyIiwidXNlcl9pZCI6M30.nl1ACnWcoROhZ7K_HKOCOVfbqiDPBzmPdEPnAdb2vxk" \ 
+https://ps.slideruleearth.io/api/membership_status/sliderule/
 ```
 ## Success Responses
 
@@ -40,9 +41,7 @@ curl -X GET \
 ```
 **Notes**
 
-
-
-## Error Response
+## Error Responses:
 
 **Condition** : typo in the URL, i.e. invalid url
 
@@ -50,7 +49,7 @@ curl -X GET \
 
 **Content** : `{The requested resource was not found on this server.}`
 
-### Or
+**--- Or ---**
 
 **Condition** : If a token for the wrong organization was provided
 
@@ -60,7 +59,7 @@ curl -X GET \
 ```json
 {"status":"FAILED","error_msg":"Token with wrong organization"}
 ```
- ### Or
+ **--- Or ---**
 
  **Condition** : The user in token claim is NOT a member of the organization
 

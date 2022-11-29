@@ -36,7 +36,7 @@ curl -X GET \
 
 The response has a status field which indicated that the request was successful and fields for the mimimum,maximum and current number of nodes
 
-## Error Response
+## Error Responses
 
 **Condition** : typo in the URL, i.e. invalid url
 
@@ -44,7 +44,7 @@ The response has a status field which indicated that the request was successful 
 
 **Content** : `{The requested resource was not found on this server.}`
 
-### Or
+**--- Or ---**
 
 **Condition** : If a token for the wrong organization was provided
 

@@ -1,4 +1,4 @@
-# Obtain an access token
+# Obtain an access/refresh token pair
 
 "Login" to a api session by obtaining an access bearer token to use to authorize subsequent requests
 
@@ -51,7 +51,7 @@ https://ps.slideruleearth.io/api/org_token/
     "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwi12345joxNjY5NzI2OTg4LCJpYXQiOjE2Njk2NDA1ODgsImp0aSI6Im123452Zjg1YTBkNjRlNjY4ZTEyZWQxYjlmNTFhN2M0Iiwib3JnX25hbWUiOiJVb2ZNRFRlc3Qi12345678905hbWUiOiJjZXVnYXJ0ZWJsYWlyIiwidXNlcl9pZCI6M30.4Q2E76l4UGHbUlrN7hYPKIEa4FKMJ7UhFEwJTV6fqdk"
 }
 ```
-**Notes**: exp is expiration of the access token. access_lifetime and refresh_lifetime are given is seconds. The refresh token can be used only once to obtain a new access token. Otherwize the use must submit username and password.
+**Notes**: exp is expiration of the access token. access_lifetime and refresh_lifetime are given is seconds. The refresh token can be used only once to obtain a new access token. Otherwise the user must use the /api/org_token/ endpoint and submit username and password.
 
 ## Error Responses
 
@@ -64,7 +64,7 @@ https://ps.slideruleearth.io/api/org_token/
 {"detail": "{org} is NOT a valid organization name"}
 ```
 
-### Or
+**--- Or ---**
 
 **Condition** : If username or password are not valid.
 
