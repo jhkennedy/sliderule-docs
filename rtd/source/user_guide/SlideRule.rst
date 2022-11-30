@@ -2,8 +2,8 @@
 SlideRule Core Module
 =====================
 
-1 Service Architecture
-######################
+1. Service Architecture
+#######################
 
 A typical SlideRule deployment includes three components:
 
@@ -21,8 +21,8 @@ Of course, these steps do not have to be taken in this order, nor is it a proble
 But these components are designed to compliment each other and provide all of the necessary services needed to perform large processing requests.
 
 
-2 De-serialization
-##################
+2. De-serialization
+###################
 
 There are two types of SlideRule services distinguished by the type of response they provide: (1) **normal** services, (2) **stream** services.
 
@@ -76,8 +76,8 @@ Stream
         }
 
 
-3 Endpoints
-###########
+3. Endpoints
+############
 
 
 definition
