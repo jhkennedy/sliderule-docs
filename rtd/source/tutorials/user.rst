@@ -1,6 +1,6 @@
-========
-Beginner
-========
+====
+User
+====
 
 .. toctree::
    :maxdepth: 1
