@@ -5,4 +5,5 @@ Beginner
 .. toctree::
    :maxdepth: 1
 
-   beginner/first_request.md
+   user/first_request.md
+   user/ancillary_fields.md
